@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Data Explorer - Welcome</title>
+    <link rel="stylesheet" href="welcome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-film"></i>
+                <h1>Anime Data Explorer</h1>
+            </div>
+            <nav>
+                <a href="#" class="active"><i class="fas fa-home"></i> Welcome</a>
+                <a href="#"><i class="fas fa-search"></i> Search</a>
+                <a href="#"><i class="fas fa-chart-bar"></i> Analytics</a>
+                <a href="#"><i class="fas fa-user"></i> Login</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Explore the World of Anime</h2>
+                    <p>Access comprehensive anime data, reviews, character details, and production information. Designed for fans and journalists.</p>
+                    <div class="hero-buttons">
+                        <button id="exploreBtn" class="btn-primary">Start Exploring</button>
+                        <button id="learnMoreBtn" class="btn-secondary">Learn More</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-dragon"></i>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <h2>Service Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Dual Database Architecture</h3>
+                        <p>Dynamic data (reviews) stored in MongoDB. Static data (features, people details) stored in PostgreSQL.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>Multi-Server Infrastructure</h3>
+                        <p>Express central server communicates with Express and Java Spring Boot servers for database access.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>High Performance</h3>
+                        <p>Optimized for thousands of users with a lightweight central server that delegates heavy tasks.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Rich Data Exploration</h3>
+                        <p>Query and explore anime data with our intuitive interface built with Handlebars templates.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="data-preview">
+                <h2>Sample Anime Data</h2>
+                <div id="sampleDataContainer"></div>
+            </section>
+
+            <section class="quick-access">
+                <h2>Quick Access</h2>
+                <div class="quick-links">
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-star"></i>
+                        <span>Top Rated Anime</span>
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Current Season</span>
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Voice Actors</span>
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-comments"></i>
+                        <span>Latest Reviews</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Anime Data Explorer</h3>
+                    <p>Providing comprehensive anime data for fans and journalists worldwide.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Technology Stack</h4>
+                    <ul>
+                        <li>Frontend: HTML5, CSS3, JavaScript, Handlebars</li>
+                        <li>Central Server: Express.js</li>
+                        <li>Database Servers: Express.js & Java Spring Boot</li>
+                        <li>Databases: MongoDB & PostgreSQL</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">GitHub Repository</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Anime Data Explorer. All anime data is property of their respective owners.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Handlebars Template for Sample Data -->
+    <script id="sampleDataTemplate" type="text/x-handlebars-template">
+        <div class="sample-data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Genre</th>
+                        <th>Episodes</th>
+                        <th>Rating</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each anime}}
+                    <tr>
+                        <td>{{title}}</td>
+                        <td>{{genre}}</td>
+                        <td>{{episodes}}</td>
+                        <td><span class="rating">{{rating}}/10</span></td>
+                        <td><span class="status {{statusClass}}">{{status}}</span></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </script>
+
+    <script src="anime.js"></script>
+</body>
+</html>
